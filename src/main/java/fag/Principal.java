@@ -11,15 +11,15 @@ public class Principal {
 		
 		// Executar todas as questões
 		questao1_Scanner(scan);
-//		questao2_Print();
-//		questao3_For();
-//		questao4_If(scan);
-//		questao5_While(scan);
-//		questao6_Metodos();
-//		questao7_ScannerIf(scan);
-//		questao8_ForPrint();
-//		questao9_WhileScanner(scan);
-//		questao10_MetodosFor();
+		questao2_Print();
+		questao3_For();
+		questao4_If(scan);
+		questao5_While(scan);
+		questao6_Metodos();
+		questao7_ScannerIf(scan);
+		questao8_ForPrint();
+		questao9_WhileScanner(scan);
+		questao10_MetodosFor();
 		
 		scan.close();
 	}
