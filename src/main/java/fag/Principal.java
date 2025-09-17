@@ -11,15 +11,15 @@ public class Principal {
 		
 		// Executar todas as questões
 		questao1_Scanner(scan);
-		questao2_Print();
-		questao3_For();
-		questao4_If(scan);
-		questao5_While(scan);
-		questao6_Metodos();
-		questao7_ScannerIf(scan);
-		questao8_ForPrint();
-		questao9_WhileScanner(scan);
-		questao10_MetodosFor();
+//		questao2_Print();
+//		questao3_For();
+//		questao4_If(scan);
+//		questao5_While(scan);
+//		questao6_Metodos();
+//		questao7_ScannerIf(scan);
+//		questao8_ForPrint();
+//		questao9_WhileScanner(scan);
+//		questao10_MetodosFor();
 		
 		scan.close();
 	}
@@ -32,7 +32,11 @@ public class Principal {
 	// Exemplo: "Olá João! Você tem 20 anos. Seja bem-vindo(a)!"
 	public static void questao1_Scanner(Scanner scan) {
 		System.out.println("=== QUESTÃO 1 - SCANNER ===");
-
+		System.out.println("Insira seu nome:");
+		String name = scan.nextLine();
+		System.out.println("Qual sua idade?");
+		int idade = scan.nextInt();
+		System.out.println("Olá "+name+"! Você tem "+idade+" anos. Seja bem-vindo(a)!");
 	}
 	
 	// ========================================
@@ -45,7 +49,13 @@ public class Principal {
 		System.out.println("=== QUESTÃO 2 - PRINT ===");
 		// SEU CÓDIGO AQUI
 		
-		System.out.println();
+		int cont;
+		int resultado;
+		
+		for (cont=1; cont<=10; cont++) {
+			resultado=5*cont;
+			System.out.println("5 x "+cont+" = "+resultado);
+		}
 	}
 	
 	// ========================================
@@ -58,7 +68,14 @@ public class Principal {
 		System.out.println("=== QUESTÃO 3 - FOR ===");
 		// SEU CÓDIGO AQUI
 		
-		System.out.println();
+		int cont;
+		int resultado=0;
+		
+		for(cont=0; cont<=100; cont++) {
+			resultado=resultado+cont;
+		}
+		
+		System.out.println("Resultado final: "+resultado);
 	}
 	
 	// ========================================
@@ -73,7 +90,15 @@ public class Principal {
 		System.out.println("Digite sua nota (0 a 10):");
 		// SEU CÓDIGO AQUI
 		
-		System.out.println();
+		float nota = scan.nextFloat();
+		
+		if(nota>=7) {
+			System.out.println("Parabéns! Você está APROVADO.");
+		} else if(nota>=4 && nota<7) {
+			System.out.println("Você ficou de recuperação.");
+			} else if(nota<4) {
+			System.out.println("Você reprovou.");
+		}
 	}
 	
 	// ========================================
@@ -86,7 +111,16 @@ public class Principal {
 		System.out.println("Digite números inteiros (digite 0 para parar):");
 		// SEU CÓDIGO AQUI
 		
-		System.out.println();
+		int num = scan.nextInt();
+		int soma = 0;
+		
+		while(num!=0) {
+			soma=soma+num;
+			System.out.println("Digite números inteiros (digite 0 para parar):");
+			num = scan.nextInt();
+		}
+		
+		System.out.println("Resultado final: "+soma);
 	}
 	
 	// ========================================
@@ -97,9 +131,12 @@ public class Principal {
 	// Dica: Use o método encontrarMaior() que está declarado abaixo
 	public static void questao6_Metodos() {
 		System.out.println("=== QUESTÃO 6 - MÉTODOS ===");
-		// SEU CÓDIGO AQUI
+		// SEU CÓDIGO AQUI	
+		int a = 10;
+		int b = 20;
+		int resposta = Principal.encontrarMaior(a, b);
 		
-		System.out.println();
+		System.out.println("O maior valor é: "+resposta+".");
 	}
 	
 	// ========================================
@@ -112,7 +149,13 @@ public class Principal {
 		System.out.println("Digite um número inteiro:");
 		// SEU CÓDIGO AQUI
 		
-		System.out.println();
+		int num = scan.nextInt();
+		
+		if(num%2==0) {
+			System.out.println(num+" é um número PAR.");
+		} else {
+			System.out.println(num+" é um número ÍMPAR.");
+		}
 	}
 	
 	// ========================================
@@ -124,7 +167,9 @@ public class Principal {
 		System.out.println("=== QUESTÃO 8 - FOR + PRINT ===");
 		// SEU CÓDIGO AQUI
 		
-		System.out.println();
+		for(int pares=2; pares<=20;pares+=2) {
+			System.out.println(pares);
+		}
 	}
 	
 	// ========================================
@@ -137,7 +182,16 @@ public class Principal {
 		System.out.println("Digite números (digite um número negativo para parar):");
 		// SEU CÓDIGO AQUI
 		
-		System.out.println();
+		int num = scan.nextInt();
+		int positivos = 0;
+		
+		while(num>=0) {
+			positivos++;
+			System.out.println("Digite números (digite um número negativo para parar):");
+			num = scan.nextInt();
+		}
+		
+		System.out.println("Você digitou "+positivos+" números positivos.");
 	}
 	
 	// ========================================
@@ -150,17 +204,27 @@ public class Principal {
 	public static void questao10_MetodosFor() {
 		System.out.println("=== QUESTÃO 10 - MÉTODOS + FOR ===");
 		// SEU CÓDIGO AQUI
+		int n = 5;
+		long fatorialN = calcularFatorial(n);
 		
-		System.out.println();
+		System.out.println("O fatorial de "+n+" é "+fatorialN+".");
+		
+		n = 7;
+		fatorialN = calcularFatorial(n);
+		System.out.println("O fatorial de "+n+" é "+fatorialN+".");
 	}
 	
 	// ========================================
 	// MÉTODO PARA QUESTÃO 6
 	// ========================================
 	// TODO: Implemente este método para retornar o maior entre dois números
-	public static int encontrarMaior(int a, int b) {
+	public static int encontrarMaior(int a, int b){
 		// SEU CÓDIGO AQUI
-		return 0; // Remova esta linha e implemente a lógica
+		if(a>b) {
+			return a;
+		} else {
+			return b;
+		}
 	}
 	
 	// ========================================
@@ -170,6 +234,10 @@ public class Principal {
 	// Use um laço for para fazer o cálculo
 	public static long calcularFatorial(int n) {
 		// SEU CÓDIGO AQUI
-		return 0; // Remova esta linha e implemente a lógica
+		long fatorial = 1;
+		for(int i=1; i<=n; i++) {
+				fatorial *= i;
+		}
+		return fatorial;
 	}
 }
